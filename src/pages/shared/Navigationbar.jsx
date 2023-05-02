@@ -1,6 +1,5 @@
-import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from 'react'; import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
 
 
@@ -18,14 +17,29 @@ const Navigationbar = () => {
             <Link to="/blog">Blog</Link>
             <Link to="/login">Login</Link>
             <Link to="/register">Register</Link>
-           
+        
            
           </Nav>
           
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+
+
+{/* //     {/* <NavLink
+//   to="/blog"
+//   style={({ isActive, isPending }) => {
+//     return {
+//       fontWeight: isActive ? "bold" : "",
+//       color: isPending ? "red" : "black",
+//     };
+//   }}
+// >
+//   blog
+// </NavLink> */} 
     </div>
+
     );
 };
 
