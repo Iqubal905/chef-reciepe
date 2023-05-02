@@ -1,19 +1,35 @@
 import React, { useContext } from 'react';
 import '../Login/Login.css'
-import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Container, Form } from 'react-bootstrap';
+import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+// import { BsFill0CircleFill } from 'react-icons';
 
 
 
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, logInWithGoogle } = useContext(AuthContext);
     // const navigate = useNavigate();
     // const location = useLocation();
     // console.log('login page location', location)
     // const from = location.state?.from?.pathname || '/category/0'
+
+    const handleGoodleLogin = () => {
+
+        logInWithGoogle()
+       .then(result =>{
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        // setUser(loggedInUser)
+       })
+       .catch(error => {
+        console.log('error', error.message);
+       })
+    }
+
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -26,7 +42,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate(from, { replace: true })
+                // Navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
@@ -34,8 +50,9 @@ const Login = () => {
     }
 
     return (
-        <div className=' d-flex justify-content-center m-5'>
-           <Form onSubmit={handleLogin} className='w-25'>
+        <Container className='d-flex justify-content-center m-5'>
+          <div>
+          <Form onSubmit={handleLogin} className='w-100'>
       <Form.Group  className="mb-3" controlId="formGroupEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" name='email' placeholder="Enter email" />
@@ -47,7 +64,13 @@ const Login = () => {
       <Button variant="success" type='submit'>Login</Button>
       <h4>If you have don't account please <Link to='/register'> <Button variant="outline-primary">Register</Button></Link></h4>
     </Form>
-        </div>
+
+
+    <button onClick={handleGoodleLogin}>google login</button> 
+    {/* <BsFill0CircleFill style={{ fontSize: '5rem' }}></BsFill0CircleFill> */}
+          </div>
+
+        </Container>
     );
 };
 
