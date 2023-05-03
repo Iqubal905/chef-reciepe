@@ -26,7 +26,9 @@ const router = createBrowserRouter([
             },
             {
               path:'blog',
-              element: <Blog></Blog>
+              element: <Blog></Blog>,
+              // loader:()=>fetch('/jobFeatured.json')
+             
             }
     
         ]
@@ -34,14 +36,18 @@ const router = createBrowserRouter([
     
         {
           path: "home",
-          element: <Main></Main>,
+          element: <Home></Home>,
+          loader :() =>fetch('http://localhost:3000/recipes'),
           children: [
+
+
+
                
-                {
-                  path:'blog',
-                  element: <Blog></Blog>
-                //  loader :({params}) => fetch(`http://localhost:5000/catagories/${params.id}`)
-                }
+                // {
+                //   path:'blog',
+                //   element: <Blog></Blog>
+                // //  loader :({params}) => fetch(`http://localhost:5000/catagories/${params.id}`)
+                // }
     
           ]
         },
