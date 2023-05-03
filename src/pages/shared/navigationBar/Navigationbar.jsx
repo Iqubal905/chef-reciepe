@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'; import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import React, { useContext } from 'react'; import { Button, Container, Image, Nav, Navbar, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 import './NavigationBar.css'
 
 const Navigationbar = () => {
+
 
 
   const { user, logOut } = useContext(AuthContext);
@@ -17,7 +18,10 @@ const Navigationbar = () => {
 
 
 
-
+  const renderTooltip = props => (
+    <Tooltip {...props}><h3>{user.displayName}</h3>
+   </Tooltip>
+  );
 
 
 
@@ -36,10 +40,21 @@ const Navigationbar = () => {
             <Link to="/blog">Blog</Link>
           </Nav>
           
-          <Nav>
+          <Nav className=''>
+
+            
+
+
           {
-              user && <FaUserCircle style={{ fontSize: '5rem' }}></FaUserCircle>
-          }
+          user &&
+
+                <OverlayTrigger placement="bottom" overlay={renderTooltip}>
+                <Image src={user.photoURL} roundedCircle  className=' w-25 h-25' />
+      </OverlayTrigger>
+               
+               
+          
+            }
 
 
        {

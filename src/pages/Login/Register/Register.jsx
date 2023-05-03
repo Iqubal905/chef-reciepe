@@ -15,9 +15,10 @@ const Register = () => {
       const form = event.target;
       const name = form.name.value;
       const email = form.email.value;
+      const photo = form.photo.value;
       const password = form.password.value;
 
-      console.log(name, email, password)
+      console.log(name, email, photo, password)
       createUser(email, password)
           .then(result => {
               const createdUser = result.user;
@@ -51,6 +52,11 @@ const Register = () => {
               <Form.Control type="text" name='name' placeholder="Your Name" required />
           </Form.Group>
          
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Photo URL</Form.Label>
+                    <Form.Control type="text" name='photo' placeholder="Photo URL" required />
+                </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" name='email' placeholder="Enter email" required />

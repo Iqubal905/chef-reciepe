@@ -10,7 +10,7 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 const Login = () => {
 
-    const { signIn, logInWithGoogle } = useContext(AuthContext);
+    const { signIn, logInWithGoogle, logInWithGitHub } = useContext(AuthContext);
     // const navigate = useNavigate();
     // const location = useLocation();
     // console.log('login page location', location)
@@ -19,6 +19,18 @@ const Login = () => {
     const handleGoodleLogin = () => {
 
         logInWithGoogle()
+       .then(result =>{
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        // setUser(loggedInUser)
+       })
+       .catch(error => {
+        console.log('error', error.message);
+       })
+    }
+    const handleGitHubLogIn = () => {
+
+      logInWithGitHub()
        .then(result =>{
         const loggedInUser = result.user;
         console.log(loggedInUser);
@@ -67,6 +79,7 @@ const Login = () => {
 
 
     <button onClick={handleGoodleLogin}>google login</button> 
+    <button onClick={handleGitHubLogIn}>GitHub login</button> 
     {/* <BsFill0CircleFill style={{ fontSize: '5rem' }}></BsFill0CircleFill> */}
           </div>
 
