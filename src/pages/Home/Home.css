@@ -13,3 +13,9 @@
     padding: 20px 0;
     font-size: 30px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .card-card {
+      grid-template-columns: auto;
+    }
+  }

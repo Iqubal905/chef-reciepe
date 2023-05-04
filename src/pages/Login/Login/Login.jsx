@@ -67,11 +67,11 @@ const Login = () => {
           <Form onSubmit={handleLogin} className='w-100'>
       <Form.Group  className="mb-3" controlId="formGroupEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" name='email' placeholder="Enter email" />
+        <Form.Control type="email" name='email' placeholder="Enter email" required />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" name='password' placeholder="Password" />
+        <Form.Control type="password" name='password' placeholder="Password" required />
       </Form.Group>
       <Button variant="success" type='submit'>Login</Button>
       <h4>If you have don't account please <Link to='/register'> <Button variant="outline-primary">Register</Button></Link></h4>

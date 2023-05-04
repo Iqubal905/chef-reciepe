@@ -32,17 +32,6 @@ const Register = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     return (
       <Container className='w-25 mx-auto'>
       <h3>Please Register</h3>
