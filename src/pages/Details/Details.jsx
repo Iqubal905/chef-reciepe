@@ -3,6 +3,9 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import Header from '../Header/Header';
 import Navigationbar from '../shared/navigationBar/Navigationbar';
 import { Button, Card, Col, Container, Image, Row, Table } from 'react-bootstrap';
+import RecipesDetails from './recipiesDetails/RecipesDetails';
+
+
 
 const Details = () => {
 
@@ -18,9 +21,9 @@ const Details = () => {
 
 
 
-
-
-
+    // const [recipe, setRecipe] = useState([each])
+      
+     
     const singleId = useParams()
  
     const allDataId = useLoaderData([])
@@ -34,8 +37,12 @@ const Details = () => {
      console.log(ele);
      setSingleMan(ele)
     },[])
-    const {name, recipes, likes, years_of_experience, picture, id, bio} = singleMan
+    const {name, recipes, likes, years_of_experience, picture, id, bio, recipesName} = singleMan
+ 
 
+
+
+   
     return (
         <div>
            <Navigationbar></Navigationbar>
@@ -62,51 +69,33 @@ const Details = () => {
         <Button variant="outline-success"  className='my-2 fw-bold' onClick={handleClick} disabled={buttonDisabled}>Favourite</Button>
 
 
-    
+
+  
     </Card>
         </Col>
-      
+        
       </Row>
+
     
      <Row>
         <Col>
-        
+   
+        <div className='card-card'>
+      
+        {
 
+    recipesName && 
+    
+      recipesName.map(each => <RecipesDetails
+                  each ={each}
+      ></RecipesDetails>
+       
+      
+    )
+   
+}
 
-        <div>
-        <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Name of recipes</th>
-          <th>Cooking Method</th>
-          <th>Ingredients</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Yakitori</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td colSpan={2}>Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </Table>
-    </div>
-
-
-
+</div>
         </Col>
      </Row>
 
