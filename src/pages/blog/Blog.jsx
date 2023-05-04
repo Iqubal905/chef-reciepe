@@ -5,7 +5,8 @@ const Blog = () => {
     
     return (
         <div>
-            <h2>blog</h2>
+            <h2>blogretrytrhrtgfr</h2>
+           
         </div>
     );
 };

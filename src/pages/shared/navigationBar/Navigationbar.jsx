@@ -29,15 +29,31 @@ const Navigationbar = () => {
 
     return (
       
-    <div className=''>
-        <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
+    <Container>
+        <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark" className='fixed-top'>
       <Container>
         <Navbar.Brand href="#home">Tasty Recipe</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Link to="/home">Home</Link>
-            <Link to="/blog">Blog</Link>
+          <NavLink
+                to="/home"
+                style={({ isActive, isPending }) => {
+             return {
+               fontWeight: isActive ? "bold" : "", color: isPending ? "red" : "white",
+             };
+               }}
+               > Home
+                </NavLink> 
+            <NavLink
+                to="/blog"
+                style={({ isActive, isPending }) => {
+             return {
+               fontWeight: isActive ? "bold" : "", color: isPending ? "red" : "white",
+             };
+               }}
+               > Blog
+                </NavLink> 
           </Nav>
           
           <Nav className=''>
@@ -59,9 +75,22 @@ const Navigationbar = () => {
 
        {
          user ? <Button onClick={handleLogOut} variant="secondary">Logout</Button> :
-          <Link to="/login">
-       <Button variant="secondary">Login</Button>
-          </Link>
+
+
+         <NavLink
+         to="/login"
+         style={({ isActive, isPending }) => {
+      return {
+        fontWeight: isActive ? "bold" : "", color: isPending ? "red" : "white",
+      };
+        }}
+        > Login
+         </NavLink> 
+
+
+      //     <Link to="/login">
+      //  <Button variant="secondary">Login</Button>
+      //     </Link>
                             }
 
           </Nav>
@@ -71,18 +100,13 @@ const Navigationbar = () => {
 
 
 
-{/* //     {/* <NavLink
-//   to="/blog"
-//   style={({ isActive, isPending }) => {
-//     return {
-//       fontWeight: isActive ? "bold" : "",
-//       color: isPending ? "red" : "black",
-//     };
-//   }}
-// >
-//   blog
-// </NavLink> */} 
-    </div>
+{
+    
+   
+
+
+} 
+    </Container>
 
     );
 };

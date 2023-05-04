@@ -7,6 +7,7 @@ import Register from '../pages/Login/Register/Register';
 import Blog from '../pages/blog/Blog';
 import Loginlayout from '../layout/Loginlayout';
 import { Navigate } from 'react-router-dom/dist';
+import Details from '../pages/Details/Details';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -38,19 +39,27 @@ const router = createBrowserRouter([
           path: "home",
           element: <Home></Home>,
           loader :() =>fetch('http://localhost:3000/recipes'),
-          children: [
+          // children: [
 
-
+          
 
                
-                // {
-                //   path:'blog',
-                //   element: <Blog></Blog>
-                // //  loader :({params}) => fetch(`http://localhost:5000/catagories/${params.id}`)
-                // }
+          //       // {
+          //       //   path:'blog',
+          //       //   element: <Blog></Blog>
+          //       // //  loader :({params}) => fetch(`http://localhost:5000/catagories/${params.id}`)
+          //       // }
     
-          ]
+          // ]
+
+         
         },
+
+        {
+          path: '/data/:dataId',
+          element: <Details></Details>,
+          loader :() =>fetch('http://localhost:3000/recipes'),
+        }
     
     // {
     //   path: 'news',
