@@ -13,10 +13,10 @@ const router = createBrowserRouter([
         path: "/",
         element:<Loginlayout></Loginlayout>,
         children: [
-              {
-                path:"/",
-                element:<Navigate to="/home"></Navigate>
-              },
+              // {
+              //   path:"/",
+              //   element:<Navigate to="/home"></Navigate>
+              // },
             {
               path: "login",
               element: <Login></Login>,
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
             {
               path:'blog',
               element: <Blog></Blog>,
-              // loader:()=>fetch('/jobFeatured.json')
+             
              
             }
     
@@ -38,7 +38,8 @@ const router = createBrowserRouter([
         {
           path: "home",
           element: <Home></Home>,
-          loader :() =>fetch('http://localhost:3000/recipes'),
+          loader :() =>fetch('https://assignment-auth-server-iqubal905.vercel.app/recipes'),
+          // loader :() =>fetch('http://localhost:3000/recipes'),
           // children: [
 
           
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
           //       // {
           //       //   path:'blog',
           //       //   element: <Blog></Blog>
-          //       // //  loader :({params}) => fetch(`http://localhost:5000/catagories/${params.id}`)
+          //       // //  loader :({params}) => fetch(`https://assignment-auth-server-iqubal905.vercel.app/:5000/catagories/${params.id}`)
           //       // }
     
           // ]
@@ -58,7 +59,9 @@ const router = createBrowserRouter([
         {
           path: '/data/:dataId',
           element: <Details></Details>,
-          loader :() =>fetch('http://localhost:3000/recipes'),
+
+          loader :() =>fetch('https://assignment-auth-server-iqubal905.vercel.app/recipes'),
+          // loader :() =>fetch('https://localhost:3000/recipes'),
         }
     
     // {

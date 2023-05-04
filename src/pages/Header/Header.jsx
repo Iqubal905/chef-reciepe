@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
-import img1 from '../../../public/couro-6.jpg'
-import img2 from '../../../public/cou-f.jpg'
-import img3 from '../../../public/coursol-3.jpg'
+import img1 from '../../assets/couro-6.jpg'
+import img2 from '../../assets/cou-f.jpg'
+import img3 from '../../assets/coursol-3.jpg'
 import '../Header/Header.css'
 const Header = () => {
 

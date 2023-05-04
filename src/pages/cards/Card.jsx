@@ -6,18 +6,13 @@ import { Link } from 'react-router-dom';
 const Card = ({data}) => {
     const {name, recipes, likes, years_of_experience, picture, id} = data
     return (
-        <div>
-           
-           
-          
-     
-    
-      
-        
-           <div class="card">
+
+        <div className=''>
+         
+      <div className="card">
   
-  <div class="container">
-  <img className='' src={picture} alt="BigCo Inc. logo"/>
+  <div className="container">
+  <img className='' src={picture} alt=""/>
  
   <h4 className='my-3'><b>{name}</b></h4> 
   
