@@ -3,14 +3,15 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDPR4QWhi9tQDd8Wm_96FXZHKLv65wfvF4",
-  authDomain: "recipes-assignment-auth.firebaseapp.com",
-  projectId: "recipes-assignment-auth",
-  storageBucket: "recipes-assignment-auth.appspot.com",
-  messagingSenderId: "212903919450",
-  appId: "1:212903919450:web:1ff7801b5942054d3efd63"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
