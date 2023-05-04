@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Header from '../Header/Header';
 import Navigationbar from '../shared/navigationBar/Navigationbar';
-import { Button, Card, Col, Container, Image, Row, Table } from 'react-bootstrap';
+import { Button, Card, Col, Container, Image, Row, Table, Toast } from 'react-bootstrap';
 import RecipesDetails from './recipiesDetails/RecipesDetails';
 
 
@@ -10,11 +10,13 @@ import RecipesDetails from './recipiesDetails/RecipesDetails';
 const Details = () => {
 
 
+    const [show, setShow] = useState(false);
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const handleClick = () => {
       setButtonDisabled(true);
+      setShow(true)
       // do something else, such as making an API call
     }
 
@@ -40,11 +42,9 @@ const Details = () => {
     const {name, recipes, likes, years_of_experience, picture, id, bio, recipesName} = singleMan
  
 
-
-
-   
-    return (
+  return (
         <div>
+
            <Navigationbar></Navigationbar>
            
            <Container className='mt-5'>
@@ -53,7 +53,7 @@ const Details = () => {
         <Image src={picture}   className='p-0 w-100 m-0'/>
         </Col>
         <Col xs={12}md={6} className='m-0 p-0' >
-        <Card className='m-5'>
+        <Card  style={{ position: "relative" }} className='m-5'>
       <Card.Body className='mt-md-5 pt-md-5'>
         <Card.Title className='py-4 fw-bold'>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">{bio}</Card.Subtitle>
@@ -66,11 +66,23 @@ const Details = () => {
   </div>
         </Card.Text>
         </Card.Body>
-        <Button variant="outline-success"  className='my-2 fw-bold' onClick={handleClick} disabled={buttonDisabled}>Favourite</Button>
 
+ 
+        <Row className='position-absolute top-0 end-0'>
+      <Col xs={6}>
+        <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+          <Toast.Header> 
+            
+          </Toast.Header>
+          <Toast.Body>Add to favourite!</Toast.Body>
+        </Toast>
+      </Col>
+      <Col xs={6}>
+      </Col>
+    </Row>
 
+ <Button variant="outline-success"  className='my-2 fw-bold' onClick={handleClick} disabled={buttonDisabled}>Favourite</Button>
 
-  
     </Card>
         </Col>
         

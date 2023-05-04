@@ -13,10 +13,10 @@ const router = createBrowserRouter([
         path: "/",
         element:<Loginlayout></Loginlayout>,
         children: [
-              // {
-              //   path:"/",
-              //   element:<Navigate to="/home"></Navigate>
-              // },
+              {
+                path:"/",
+                element:<Navigate to="/home"></Navigate>
+              },
             {
               path: "login",
               element: <Login></Login>,
@@ -44,14 +44,7 @@ const router = createBrowserRouter([
 
           
 
-               
-          //       // {
-          //       //   path:'blog',
-          //       //   element: <Blog></Blog>
-          //       // //  loader :({params}) => fetch(`https://assignment-auth-server-iqubal905.vercel.app/:5000/catagories/${params.id}`)
-          //       // }
-    
-          // ]
+       
 
          
         },
@@ -64,16 +57,6 @@ const router = createBrowserRouter([
           // loader :() =>fetch('https://localhost:3000/recipes'),
         }
     
-    // {
-    //   path: 'news',
-    //   element: <NewsLayout></NewsLayout>,
-    //  children:[
-    //       {
-    //         path: ':id',
-    //         element: <News></News>
-    
-    //       }
-    //  ]
-    // }
+   
   ]);
 export default router;

@@ -32,7 +32,7 @@ const Navigationbar = () => {
     <Container>
         <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark" className='fixed-top'>
       <Container>
-        <Navbar.Brand href="#home">Tasty Recipe</Navbar.Brand>
+        <Navbar.Brand href="">Tasty Recipe</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
