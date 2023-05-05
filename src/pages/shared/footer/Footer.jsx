@@ -4,13 +4,12 @@ import { Container, Row, Col } from 'react-bootstrap';
 function Footer() {
   return (
     <footer className="mt-5">
-      <Container fluid>
+      <div>
         <Row className="border-top justify-content-between p-3">
           <Col className="p-0" md={3} sm={12}>
             <h5>My Company</h5>
             <p>
-              A short description of my company. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+              A short description of my company.             </p>
           </Col>
           <Col className="p-0 d-flex justify-content-end" md={3}>
             <div className="d-flex flex-column align-items-end">
@@ -34,7 +33,7 @@ function Footer() {
             <p>© {new Date().getFullYear()} My Company. All rights reserved.</p>
           </Col>
         </Row>
-      </Container>
+      </div>
     </footer>
   );
 }

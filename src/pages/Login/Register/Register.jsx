@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form, Toast } from 'react-bootstrap';
 import {Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import Footer from '../../shared/Footer';
 
 const Register = () => {
   const [error, setError] = useState('')
@@ -37,8 +38,10 @@ const Register = () => {
 
 
     return (
+
+        <div>
       <Container className='w-25 mx-auto'>
-      <h3>Please Register</h3>
+      <h3 className='pt-5'>Please Register</h3>
       <Form  onSubmit={handleRegister}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Name</Form.Label>
@@ -87,7 +90,8 @@ const Register = () => {
 
 
   </Container>
-        
+  <Footer></Footer>
+  </div>   
     );
 };
 
