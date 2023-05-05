@@ -10,17 +10,7 @@ import RecipesDetails from './recipiesDetails/RecipesDetails';
 const Details = () => {
 
 
-    const [show, setShow] = useState(false);
-
-    const [buttonDisabled, setButtonDisabled] = useState(false);
-
-    const handleClick = () => {
-      setButtonDisabled(true);
-      setShow(true)
-      // do something else, such as making an API call
-    }
-
-
+   
 
 
     // const [recipe, setRecipe] = useState([each])
@@ -41,7 +31,6 @@ const Details = () => {
     },[])
     const {name, recipes, likes, years_of_experience, picture, id, bio, recipesName} = singleMan
  
-
   return (
         <div>
 
@@ -68,20 +57,9 @@ const Details = () => {
         </Card.Body>
 
  
-        <Row className='position-absolute top-0 end-0'>
-      <Col xs={6}>
-        <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
-          <Toast.Header> 
-            
-          </Toast.Header>
-          <Toast.Body>Add to favourite!</Toast.Body>
-        </Toast>
-      </Col>
-      <Col xs={6}>
-      </Col>
-    </Row>
+        
 
- <Button variant="outline-success"  className='my-2 fw-bold' onClick={handleClick} disabled={buttonDisabled}>Favourite</Button>
+ 
 
     </Card>
         </Col>
@@ -111,7 +89,7 @@ const Details = () => {
         </Col>
      </Row>
 
-
+  
     </Container>
            
         </div>

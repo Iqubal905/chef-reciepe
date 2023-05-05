@@ -5,8 +5,9 @@ import { Outlet } from 'react-router-dom/dist';
 const Loginlayout = () => {
     return (
         <div>
-           <Navigationbar></Navigationbar>
-           <Outlet></Outlet>
+
+            <Navigationbar></Navigationbar>
+           <Outlet></Outlet> 
         </div>
     );
 };

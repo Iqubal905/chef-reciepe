@@ -80,8 +80,8 @@ const Register = () => {
 
 
       <div className='position-absolute top-50 start-50'>
-         <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
-          <Toast.Body  className='text-success fw-bold'>User has been created successfully!</Toast.Body>
+         <Toast onClose={() => setShow(false)} show={show} delay={2000} autohide>
+          <Toast.Body  className='text-success fw-bold p-2'>User has been created successfully!</Toast.Body>
         </Toast> 
     </div>
 

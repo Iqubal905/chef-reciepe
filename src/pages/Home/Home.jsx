@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, useContext } from 'react';
 import Navigationbar from '../shared/navigationBar/Navigationbar';
 import Header from '../Header/Header';
 import { useLoaderData } from 'react-router-dom';
@@ -8,13 +8,24 @@ import { Container } from 'react-bootstrap';
 import Footer from '../shared/Footer';
 import Picture from '../picture/Picture';
 import Food from '../Food/Food';
-
+import { AuthContext } from '../../providers/AuthProvider';
+const OtherComponent = React.lazy(() => import('../picture/Picture'));
 const Home = () => {
+
+    const  {loading} = useContext(AuthContext)
     const datas = useLoaderData([]);
     console.log(datas);
+
+
+    if(loading){
+        return <Spinner animation="border" variant="primary" />
+    }
+
+
     return (
         <div>
-           <Navigationbar></Navigationbar>
+
+          <Navigationbar></Navigationbar>
            <Header></Header>
 
        <Container>
@@ -31,6 +42,10 @@ const Home = () => {
                 }
          
        </div>
+
+       <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
 
        <Picture></Picture>
        <Food></Food>
