@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../Login/Login.css'
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, Navigate } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { AuthContext } from '../../../providers/AuthProvider';
 
 
 const Login = () => {
+
+   const [error, setError] = useState('')
 
     const { signIn, logInWithGoogle, logInWithGitHub } = useContext(AuthContext);
     // const navigate = useNavigate();
@@ -33,7 +35,7 @@ const Login = () => {
       logInWithGitHub()
        .then(result =>{
         const loggedInUser = result.user;
-        console.log(loggedInUser);
+        // console.log(loggedInUser);
         // setUser(loggedInUser)
        })
        .catch(error => {
@@ -49,15 +51,18 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        setError('')
+    
 
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                // Navigate(from, { replace: true })
+                
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message)
             })
     }
 
@@ -80,7 +85,8 @@ const Login = () => {
 
     <button onClick={handleGoodleLogin}>google login</button> 
     <button onClick={handleGitHubLogIn}>GitHub login</button> 
-    {/* <BsFill0CircleFill style={{ fontSize: '5rem' }}></BsFill0CircleFill> */}
+   
+    <p className='text-warning'>{error}</p>
           </div>
 
         </Container>

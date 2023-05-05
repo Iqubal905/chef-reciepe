@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import React, { useContext, useState } from 'react';
+import { Button, Container, Form, Toast } from 'react-bootstrap';
 import {Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
-
-
+  const [error, setError] = useState('')
+  const [show, setShow] = useState(false);
 
   const { createUser } = useContext(AuthContext);
  
@@ -18,14 +18,18 @@ const Register = () => {
       const photo = form.photo.value;
       const password = form.password.value;
 
-      console.log(name, email, photo, password)
+    //   console.log(name, email, photo, password)
       createUser(email, password)
           .then(result => {
               const createdUser = result.user;
               console.log(createdUser);
+              setError('')
+              setShow(true)
+              form.reset()
           })
           .catch(error => {
-              console.log(error);
+              console.log(error.message);
+              setError(error.message)
           })
   }
 
@@ -70,7 +74,18 @@ const Register = () => {
           <Form.Text className="text-danger">
 
           </Form.Text>
+          <p className='text-danger'>{error}</p>
+        
       </Form>
+
+
+      <div className='position-absolute top-50 start-50'>
+         <Toast onClose={() => setShow(false)} show={show} delay={3000} autohide>
+          <Toast.Body  className='text-success fw-bold'>User has been created successfully!</Toast.Body>
+        </Toast> 
+    </div>
+
+
   </Container>
         
     );
