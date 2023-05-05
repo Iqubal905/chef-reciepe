@@ -14,18 +14,14 @@ const Login = () => {
    const [error, setError] = useState('')
 
     const { signIn, logInWithGoogle, logInWithGitHub } = useContext(AuthContext);
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // console.log('login page location', location)
-    // const from = location.state?.from?.pathname || '/category/0'
-
+    
     const handleGoodleLogin = () => {
 
         logInWithGoogle()
        .then(result =>{
         const loggedInUser = result.user;
         console.log(loggedInUser);
-        // setUser(loggedInUser)
+       
        })
        .catch(error => {
         console.log('error', error.message);
@@ -36,8 +32,7 @@ const Login = () => {
       logInWithGitHub()
        .then(result =>{
         const loggedInUser = result.user;
-        // console.log(loggedInUser);
-        // setUser(loggedInUser)
+        
        })
        .catch(error => {
         console.log('error', error.message);

@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import { useLoaderData } from 'react-router-dom';
 import Card from '../cards/Card';
 import './Home.css'
-import { Container } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap';
 import Footer from '../shared/Footer';
 import Picture from '../picture/Picture';
 import Food from '../Food/Food';
